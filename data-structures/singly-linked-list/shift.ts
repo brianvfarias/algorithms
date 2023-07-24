@@ -57,3 +57,11 @@ class SinglyLinkedList {
     return aux;
   }
 }
+
+let list = new SinglyLinkedList();
+console.log(list.add(10));
+console.log(list.add(20));
+console.log(list.add(30));
+console.log(list.add(40));
+
+console.log(list, list.shift(), list);
