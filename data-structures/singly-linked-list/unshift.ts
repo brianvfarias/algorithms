@@ -73,14 +73,12 @@ class SinglyLinkedList {
 
     return this;
   }
-
-  get(index: number) {
-    if (index < 0 || index >= this.len) return null;
-    if (index === 0) return this.head?.val;
-    let node = this.head;
-    for (let i = 0; i < index; i++) {
-      node = node?.next ? node?.next : null;
-    }
-    return node;
-  }
 }
+
+const list = new SinglyLinkedList();
+console.log(list.unshift(3));
+console.log(list.add(5));
+console.log(list.unshift(1));
+console.log(list.pop());
+
+console.log(list);

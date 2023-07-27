@@ -75,6 +75,8 @@ class SinglyLinkedList {
   }
 
   get(index: number) {
+    // My implementation
+    // This time mine is not commented cause I liked it better (both work, anyhow)
     if (index < 0 || index >= this.len) return null;
     if (index === 0) return this.head?.val;
     let node = this.head;
@@ -82,5 +84,24 @@ class SinglyLinkedList {
       node = node?.next ? node?.next : null;
     }
     return node;
+
+    //  Course implementation
+    // if (index < 0 || index >= this.len) return null;
+    // let counter = 0;
+    // let current = this.head;
+    // while (counter !== index) {
+    //   current = current?.next;
+    //   counter++;
+    // }
+    // return current;
   }
 }
+
+const list = new SinglyLinkedList();
+list.add(0);
+list.add(1);
+list.add(2);
+list.add(3);
+list.add(4);
+console.log(list);
+console.log(list.get());
