@@ -1,4 +1,4 @@
-import { SLLNode } from "./singly-linked-list";
+import { SLLNode } from "../singly-linked-list";
 
 class SinglyLinkedList {
   head: SLLNode | null;

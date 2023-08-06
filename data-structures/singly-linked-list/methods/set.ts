@@ -24,7 +24,7 @@ class SinglyLinkedList {
       this.head = aux;
       this.tail = this.head;
     } else {
-      this.tail!.next = aux;
+      this.tail.next = aux;
       this.tail = aux;
     }
     this.len++;
@@ -91,46 +91,25 @@ class SinglyLinkedList {
     }
     current.val = value;
     return true;
-  }
 
-  insert(index, value) {
-    if (index < 0 || index > this.len) return false;
-    if (index === 0) return !!this.unshift(value);
-    if (index === this.len) return !!this.add(value);
-    let newAtIndex = new SLLNode(value);
-    let previousIndex = this.get(index - 1);
-    let nextIndex = previousIndex!.next;
-    previousIndex!.next = newAtIndex;
-    console.log(nextIndex);
-    newAtIndex!.next = nextIndex;
-    this.len++;
-    return true;
-  }
-
-  remove(index) {
-    if (index < 0 || index >= this.len) return undefined;
-    if (index === 0) return this.shift();
-    if (index === this.len) return this.pop();
-    let previousIndex = this.get(index - 1);
-    let removed = previousIndex!.next;
-    previousIndex!.next = removed!.next;
-    this.len--;
-    return removed;
-  }
-
-  reverse() {
-    if (!this.head) return "Can't reverse empty list";
-    let node = this.head;
-    this.head = this.tail;
-    this.tail = node;
-    let next;
-    let prev: SLLNode | null = null;
-    // let count = 0;
-    for (let i = 0; i < this.len; i++) {
-      next = node.next;
-      node.next = prev;
-      prev = node;
-      node = next;
-    }
+    // My implementation was slightly different from the course's instructor
+    // but there is no need to recreate it here, since both have, fundamentally, the same logic
   }
 }
+
+const list = new SinglyLinkedList();
+list.add("Zero");
+list.add("One");
+list.add("Two");
+console.log(list);
+
+console.log(list.get(0));
+console.log(list.set(0, "five"));
+console.log(list.get(0));
+
+console.log(list.get(2));
+console.log(list.set(2, "eight"));
+console.log(list.get(2));
+
+console.log(list);
+console.log(list.set(-1, "Minus One"));

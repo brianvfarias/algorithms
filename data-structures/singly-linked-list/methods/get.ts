@@ -104,4 +104,4 @@ list.add(2);
 list.add(3);
 list.add(4);
 console.log(list);
-console.log(list.get());
+console.log(list.get(1));

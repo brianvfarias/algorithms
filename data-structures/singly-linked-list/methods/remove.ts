@@ -108,6 +108,8 @@ class SinglyLinkedList {
   }
 
   remove(index) {
+    // surprisingly both implementations were exactly the same
+    // I'll just say that hahaha
     if (index < 0 || index >= this.len) return undefined;
     if (index === 0) return this.shift();
     if (index === this.len) return this.pop();
@@ -117,20 +119,15 @@ class SinglyLinkedList {
     this.len--;
     return removed;
   }
-
-  reverse() {
-    if (!this.head) return "Can't reverse empty list";
-    let node = this.head;
-    this.head = this.tail;
-    this.tail = node;
-    let next;
-    let prev: SLLNode | null = null;
-    // let count = 0;
-    for (let i = 0; i < this.len; i++) {
-      next = node.next;
-      node.next = prev;
-      prev = node;
-      node = next;
-    }
-  }
 }
+
+const list = new SinglyLinkedList();
+list.add("First");
+list.add("Second");
+list.add("Third");
+list.add("Fourth");
+console.log(list);
+console.log(list.remove(-1));
+console.log(list.remove(5));
+console.log(list.remove(0));
+console.log(list);

@@ -24,7 +24,7 @@ class SinglyLinkedList {
       this.head = aux;
       this.tail = this.head;
     } else {
-      this.tail!.next = aux;
+      this.tail.next = aux;
       this.tail = aux;
     }
     this.len++;
@@ -94,6 +94,19 @@ class SinglyLinkedList {
   }
 
   insert(index, value) {
+    // My implementation
+    // Almost the same as the one developed by the instructor
+    // if (index < 0 || index > this.len) return false;
+    // if (index === 0) return this.unshift(value);
+    // if (index === this.len) return this.add(value);
+    // let newAtIndex = new SLLNode(value);
+    // let previousIndex = this.get(index - 1);
+    // let nextIndex = this.get(index);
+    // previousIndex!.next = newAtIndex;
+    // console.log(nextIndex);
+    // newAtIndex!.next = nextIndex;
+    // this.len++;
+    // return true;
     if (index < 0 || index > this.len) return false;
     if (index === 0) return !!this.unshift(value);
     if (index === this.len) return !!this.add(value);
@@ -106,31 +119,15 @@ class SinglyLinkedList {
     this.len++;
     return true;
   }
-
-  remove(index) {
-    if (index < 0 || index >= this.len) return undefined;
-    if (index === 0) return this.shift();
-    if (index === this.len) return this.pop();
-    let previousIndex = this.get(index - 1);
-    let removed = previousIndex!.next;
-    previousIndex!.next = removed!.next;
-    this.len--;
-    return removed;
-  }
-
-  reverse() {
-    if (!this.head) return "Can't reverse empty list";
-    let node = this.head;
-    this.head = this.tail;
-    this.tail = node;
-    let next;
-    let prev: SLLNode | null = null;
-    // let count = 0;
-    for (let i = 0; i < this.len; i++) {
-      next = node.next;
-      node.next = prev;
-      prev = node;
-      node = next;
-    }
-  }
 }
+
+const list = new SinglyLinkedList();
+list.add("Zero");
+list.add("One");
+list.add("Two");
+list.add("Three");
+list.add("Four");
+list.add("Five");
+console.log(list);
+console.log(list.insert(4, "Three and half"));
+console.log(list);

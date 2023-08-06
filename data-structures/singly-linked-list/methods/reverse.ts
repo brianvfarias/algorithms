@@ -133,4 +133,32 @@ class SinglyLinkedList {
       node = next;
     }
   }
+  // let oldHead = this.head;
+  // this.tail!.val = oldHead!.val;
+  // let oldState, toUpdate;
+  // while(oldHead.next){
+  //   toUpdate = oldHead.next
+  //   oldState = toUpdate.next;
+  //   toUpdate!.next =
+  //   oldHead.next = oldState
+  // }
+  //   let oldHead = this.head;
+  //   for (let i = 0; i <= this.len; i++) {
+  //     const prev = this.get(i) ?? null;
+  //     let newList = new SinglyLinkedList();
+  //     if (prev !== null) {
+  //       prev.next = prev ?? null;
+  //       newList.add(prev);
+  //       return newList;
+  //     }
+  //   }
+  // }
 }
+
+const list = new SinglyLinkedList();
+list.add("First");
+list.add("Second");
+list.add("Last");
+console.log(list);
+console.log(list.reverse());
+console.log(list);
