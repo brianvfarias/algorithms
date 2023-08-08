@@ -80,3 +80,21 @@ class DoublyLinkedList {
     return this;
   }
 }
+
+const list = new DoublyLinkedList();
+list.unshift("Konohamaru");
+console.log(list);
+list.unshift("Naruto");
+console.log(list);
+list.unshift("Sasuke");
+console.log(list);
+list.unshift("Kakashi");
+console.log(list);
+list.unshift("Sakura");
+console.log(list);
+list.unshift("Sai");
+console.log(list);
+list.pop();
+console.log(list);
+list.shift();
+console.log(list);

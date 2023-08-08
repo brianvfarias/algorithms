@@ -65,18 +65,4 @@ class DoublyLinkedList {
     this.len--;
     return oldHead;
   }
-
-  unshift(val) {
-    let newHead = new DLLNode(val);
-    if (!this.head) {
-      this.head = newHead;
-      this.tail = newHead;
-    } else {
-      this.head.prev = newHead;
-      newHead!.next = this.head;
-      this.head = newHead;
-    }
-    this.len++;
-    return this;
-  }
 }
