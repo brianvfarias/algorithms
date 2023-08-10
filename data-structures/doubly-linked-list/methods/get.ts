@@ -79,6 +79,7 @@ class DoublyLinkedList {
     this.len++;
     return this;
   }
+
   get(index) {
     if (index < 0 || index >= this.len) return null;
     if (index === 0) return this.head;
@@ -101,4 +102,38 @@ class DoublyLinkedList {
       count = increase ? count + 1 : count - 1;
     }
     return loop;
+    // Course's implementation
+    // I'd say my implementation is harder to understand
+    // But it was funny for me to "overengineer" it,
+    // so I'll live mine as the "official"
+    // if(index < 0 || index >= this.length) return null;
+    // var count, current;
+    // if(index <= this.length/2){
+    //     count = 0;
+    //     current = this.head;
+    //     while(count !== index){
+    //         current = current.next;
+    //         count++;
+    //     }
+    // } else {
+    //     count = this.length - 1;
+    //     current = this.tail;
+    //     while(count !== index){
+    //         current = current.prev;
+    //         count--;
+    //     }
+    // }
+    // return current;
+  }
 }
+
+const list = new DoublyLinkedList();
+list.add("Zero");
+list.add("One");
+list.add("Two");
+list.add("Three");
+list.add("Four");
+list.add("Five");
+list.add("Six");
+list.add("Seven");
+console.log(list.get(5));
