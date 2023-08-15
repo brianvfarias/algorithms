@@ -113,6 +113,7 @@ class DoublyLinkedList {
   }
 
   insert(index, val) {
+    // I got the organization of the code form the course's instructor!
     if (index < 0 || index > this.len) return false;
     if (index === 0) return !!this.unshift(val);
     if (index === this.len) return !!this.add(val);
@@ -121,9 +122,21 @@ class DoublyLinkedList {
     let found = this.get(index - 1);
     let nextFromFound = found!.next;
 
-    (found!.next = inserted), (inserted.prev = found);
-    (nextFromFound!.prev = inserted), (inserted!.next = nextFromFound);
+    found!.next = inserted;
+    inserted.prev = found;
+    nextFromFound!.prev = inserted;
+    inserted!.next = nextFromFound;
     this.len++;
     return true;
   }
 }
+
+const list = new DoublyLinkedList();
+list.add("Dog");
+list.add("Cat");
+list.add("Koala");
+list.add("Panda");
+console.log(list);
+console.log(list.insert(2, "Hamster"));
+console.log(list.insert(0, "Owl"));
+console.log(list);

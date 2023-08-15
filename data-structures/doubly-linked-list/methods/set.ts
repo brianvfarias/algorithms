@@ -102,7 +102,6 @@ class DoublyLinkedList {
     }
     return loop;
   }
-
   set(index, val) {
     let oldAtIndex = this.get(index);
     if (!oldAtIndex) {
@@ -111,19 +110,14 @@ class DoublyLinkedList {
     oldAtIndex!.value = val;
     return true;
   }
-
-  insert(index, val) {
-    if (index < 0 || index > this.len) return false;
-    if (index === 0) return !!this.unshift(val);
-    if (index === this.len) return !!this.add(val);
-
-    let inserted = new DLLNode(val);
-    let found = this.get(index - 1);
-    let nextFromFound = found!.next;
-
-    (found!.next = inserted), (inserted.prev = found);
-    (nextFromFound!.prev = inserted), (inserted!.next = nextFromFound);
-    this.len++;
-    return true;
-  }
 }
+
+const list = new DoublyLinkedList();
+list.add("Dog");
+list.add("Cat");
+list.add("Koala");
+list.add("Panda");
+console.log(list);
+console.log(list.set(2, "Hamster"));
+console.log(list.set(0, "Hamster"));
+console.log(list);
